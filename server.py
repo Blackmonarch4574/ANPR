@@ -14,7 +14,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Configure upload directory
 UPLOAD_FOLDER = 'tmp'
-ALLOWED_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+ALLOWED_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg','webp'}
 ALLOWED_VIDEO_EXTENSIONS = {'mp4', 'avi', 'mov'}
 
 # app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
