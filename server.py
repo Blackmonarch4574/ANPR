@@ -21,7 +21,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Set up Google Cloud credentials path
-CREDENTIALS_PATH = 'f:/comand HQ/hqanpr-d27230c75bb2.json'
+CREDENTIALS_PATH = 'hqanpr-d27230c75bb2.json'
 
 def allowed_file(filename, file_type='image'):
     """Check if file has an allowed extension"""
