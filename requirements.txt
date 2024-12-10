@@ -5,4 +5,5 @@ opencv-python-headless
 numpy
 google-cloud-vision
 google-cloud-storage
+gunicorn
 matplotlib
