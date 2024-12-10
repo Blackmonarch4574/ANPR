@@ -7,21 +7,21 @@ sys.path.append('.')  # Add current directory to path
 
 from image import setup_credentials_img, detect_objects_and_plates
 from video import setup_credentials, process_video, aggregate_object_detections
-from google.cloud import vision_v1
+from google.cloud import vision_v1, storage
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Configure upload directory
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = 'tmp'
 ALLOWED_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 ALLOWED_VIDEO_EXTENSIONS = {'mp4', 'avi', 'mov'}
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Set up Google Cloud credentials path
-CREDENTIALS_PATH = 'hqanpr-d27230c75bb2.json'
+CREDENTIALS_PATH = 'f:/comand HQ/hqanpr-942721c9fa3c.json'
 
 def allowed_file(filename, file_type='image'):
     """Check if file has an allowed extension"""
@@ -43,7 +43,8 @@ def process_images():
     for file in files:
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            filepath = os.path.join(UPLOAD_FOLDER,filename)
             file.save(filepath)
             
             try:
@@ -77,7 +78,8 @@ def process_videos():
     for file in files:
         if file and allowed_file(file.filename, 'video'):
             filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            filepath = os.path.join(UPLOAD_FOLDER,filename)
             file.save(filepath)
             
             try:
@@ -107,3 +109,5 @@ def serve_html():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    handler = app
