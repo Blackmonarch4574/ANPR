@@ -21,7 +21,7 @@ ALLOWED_VIDEO_EXTENSIONS = {'mp4', 'avi', 'mov'}
 # os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Set up Google Cloud credentials path
-CREDENTIALS_PATH = 'f:/comand HQ/hqanpr-942721c9fa3c.json'
+CREDENTIALS_PATH = 'hqanpr-942721c9fa3c.json'
 
 def allowed_file(filename, file_type='image'):
     """Check if file has an allowed extension"""
